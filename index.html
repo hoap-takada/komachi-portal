@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こまち先輩 - Instagram相談ポータル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .portal-container {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .portal-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .character-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            background: linear-gradient(45deg, #f0ad4e, #d9534f);
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .character-placeholder {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .character-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .character-role {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .character-message {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 32px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        .action-button:active {
+            transform: translateY(0);
+        }
+
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        .features {
+            margin-top: 32px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .feature-text {
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .instructions {
+            margin-top: 24px;
+            padding: 16px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+            font-size: 14px;
+            color: #856404;
+        }
+
+        @media (max-width: 480px) {
+            .portal-container {
+                padding: 24px;
+                margin: 10px;
+            }
+            
+            .character-name {
+                font-size: 24px;
+            }
+            
+            .character-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-container">
+        <div class="character-image pulse">
+            <!-- こまち先輩の画像をkomachi.pngという名前で同じフォルダに置いてください -->
+            <!-- <img src="komachi.png" alt="こまち先輩" /> -->
+            <!-- 画像がない場合は下記プレースホルダーが表示されます -->
+            <div class="character-placeholder">
+                こまち先輩<br>画像を<br>komachi.png<br>で配置してね！
+            </div>
+        </div>
+        
+        <h1 class="character-name">🩺 こまち先輩</h1>
+        <p class="character-role">看護師さんの頼れる味方</p>
+        
+        <div class="character-message">
+            「Instagram投稿、任せな！」
+        </div>
+        
+        <a href="https://chatgpt.com/g/g-686df12914ac8191a83f802e5bbb67cc-komatixian-bei" 
+           class="action-button" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            今すぐ相談する 💬
+        </a>
+        
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">📝</span>
+                <span class="feature-text">投稿文章の作成サポート</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💡</span>
+                <span class="feature-text">バズるアイデア提案</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🎯</span>
+                <span class="feature-text">ターゲットに刺さる内容</span>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <strong>🔧 画像設定方法:</strong><br>
+            こまち先輩の画像を「komachi.png」という名前で保存し、このHTMLファイルと同じフォルダに置いてください。<br>
+            そして上記のコメント部分を編集してimg要素を有効にしてください。
+        </div>
+    </div>
+
+    <script>
+        // こまち先輩の画像を自動で読み込む処理
+        const placeholder = document.querySelector('.character-placeholder');
+        const imageContainer = document.querySelector('.character-image');
+        
+        // 画像ファイルが存在するかチェック
+        const img = new Image();
+        img.onload = function() {
+            // 画像が読み込めた場合
+            placeholder.style.display = 'none';
+            const imgElement = document.createElement('img');
+            imgElement.src = 'komachi.png';
+            imgElement.alt = 'こまち先輩';
+            imgElement.style.cssText = 'width: 100%; height: 100%; border-radius: 50%; object-fit: cover;';
+            imageContainer.appendChild(imgElement);
+        };
+        img.onerror = function() {
+            // 画像が読み込めない場合はプレースホルダーを表示
+            console.log('こまち先輩の画像 (komachi.png) が見つかりませんでした');
+        };
+        img.src = 'komachi.png';
+    </script>
+</body>
+</html>
